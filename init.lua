@@ -14,6 +14,10 @@ end
 -------------------------------------------------------------------------------
 -- Settings
 -------------------------------------------------------------------------------
+-- Vitto
+local Allowrefuel = false
+local AllowElectricRefuel = false
+------------------------
 
 Config = {}
 
@@ -113,6 +117,24 @@ local function GangCheck() return true end
 local function JobTypeCheck() return true end
 local function ItemCheck() return true end
 local function CitizenCheck() return true end
+
+-- Vitto cdn-fuel nozzles
+local function AllowRefuel(state, electric) 
+    if state then
+		if electric then
+			AllowElectricRefuel = true
+		else
+        	Allowrefuel = true
+		end
+    else
+		if electric then
+			AllowElectricRefuel = false
+		else
+			Allowrefuel = false
+		end
+    end
+end exports('AllowRefuel', AllowRefuel)
+-------------------------------------
 
 CreateThread(function()
 	local state = GetResourceState('qb-core')
