@@ -22,7 +22,7 @@ local AllowElectricRefuel = false
 Config = {}
 
 -- It's possible to interact with entities through walls so this should be low
-Config.MaxDistance = 7.0
+Config.MaxDistance = 5.0
 
 -- Enable debug options
 Config.Debug = false
