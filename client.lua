@@ -415,7 +415,7 @@ local function EnableTarget()
 					if next(nuiData) then
 						success = true
 						SendNUIMessage({ response = 'foundTarget', data = nuiData[slot].targeticon, options = nuiData })
-						if Config.DrawSprite then
+						if Config.DrawSprite and listSprite[closestZone.name] then -- Vitto : rajout de and listSprite...
 							listSprite[closestZone.name].success = true
 						end
 						DrawOutlineEntity(entity, true)
